@@ -26,20 +26,6 @@ export const writeSnapshotInfo = async (snapshotId: string, snapshotInfo: Snapsh
   await snapshotStorage.setItem(snapshotId, snapshotInfo);
 };
 
-export const simplyActivityIds = async (snapshotId: string): Promise<string | false> => {
-  const snapshotInfo = await getSnapshotInfo(snapshotId);
-  const activityId = snapshotInfo?.activityId;
-
-  if (activityId) {
-    const appId = snapshotInfo.appId;
-    if (activityId.startsWith(appId) && activityId[appId.length] === '.') {
-      const simplyActivityIds = activityId.replace(appId, '');
-
-      return simplyActivityIds;
-    } else return false;
-  } else return false;
-};
-
 export const getScreenInfo = async (
   snapshotId: string,
 ): Promise<{ width: number; height: number }> => {

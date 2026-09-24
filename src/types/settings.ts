@@ -6,7 +6,6 @@ export interface ISettings {
   rulesKeySort: RulesKeyOrder;
   hideLoadSnackbar: boolean;
   simplyName: boolean;
-  activityIdsSimply: boolean;
   readClipboard: boolean;
   vidAdaption: boolean;
 }

@@ -4,15 +4,12 @@ import json5 from 'json5';
 import iArrayToArray from '../utils/iArrayToArray';
 import { send } from '../utils/event';
 import sort from '../utils/sort';
-import { simplyActivityIds, getHanashiroSettings } from '../utils/indexedDB';
-import getSnapshotId from '../utils/getSnapshotId';
 
 export default async (element: Button) => {
   const ruleName = (document.querySelector('#ruleName') as TextField).value;
   const ruleDesc = (document.querySelector('#ruleDesc') as TextField).value;
   const category = window.Hanashiro.currentCategory;
   const isNoExample = (document.querySelector('#noExample') as Switch).checked;
-  const isSimplyActivityIds = await getHanashiroSettings('activityIdsSimply');
   const origin: RawApp = json5.parse(window.Hanashiro.originRule);
 
   if (ruleName) origin.groups[0].name = ruleName;
@@ -37,18 +34,6 @@ export default async (element: Button) => {
     const rule = iArrayToArray(origin.groups[0].rules as IArray<RawAppRule>)[0];
     delete rule.exampleUrls;
     origin.groups[0].rules = [rule];
-  }
-
-  if (isSimplyActivityIds === true) {
-    const snapshotId = await getSnapshotId();
-    const rule = iArrayToArray(origin.groups[0].rules as IArray<RawAppRule>)[0];
-
-    const result = await simplyActivityIds(snapshotId);
-
-    if (result && rule.activityIds) {
-      rule.activityIds = result;
-      origin.groups[0].rules = [rule];
-    }
   }
 
   origin.groups[0] = await sort(origin.groups[0]);

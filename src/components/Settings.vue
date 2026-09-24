@@ -48,8 +48,6 @@ export default defineComponent({
       (document.querySelector('#hideLoadSnackbar') as Switch).checked = true;
     if (await getHanashiroSettings<boolean>('simplyName'))
       (document.querySelector('#simplyName') as Switch).checked = true;
-    if (await getHanashiroSettings<boolean>('activityIdsSimply'))
-      (document.querySelector('#activityIdsSimply') as Switch).checked = true;
     if (await getHanashiroSettings<boolean>('readClipboard'))
       (document.querySelector('#readClipboard') as Switch).checked = true;
     if (await getHanashiroSettings<boolean>('vidAdaption'))
@@ -114,11 +112,6 @@ export default defineComponent({
         >在复制name属性时，会自动优化复制的内容。如复制 android.widget.TextView 时会优化为
         TextView</span
       >
-    </div>
-    <div>
-      <span>activityIds规则复制优化：</span>
-      <mdui-switch id="activityIdsSimply"></mdui-switch>
-      <span class="introduction">在复制规则代码时，若activityIds满足简写条件时，使用简写</span>
     </div>
     <div>
       <span>自动读取剪贴板：</span>

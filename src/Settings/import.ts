@@ -16,7 +16,6 @@ const setValue = async (settings: ISettings) => {
         placement: 'top',
       });
     }
-    await setHanashiroSettings('activityIdsSimply', settings.activityIdsSimply);
     if (isCategoriesLegal) await setHanashiroSettings('categories', settings.categories);
     await setHanashiroSettings('hideLoadSnackbar', settings.hideLoadSnackbar);
     await setHanashiroSettings('rulesKeySort', settings.rulesKeySort);
