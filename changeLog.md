@@ -1,1 +1,1 @@
-1. fix: Firefox 下无法获取 snapshotId(#42, @tianfangyetan1)
+1. 移除 simplyActivityIds 功能
