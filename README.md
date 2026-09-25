@@ -75,8 +75,10 @@ pnpm build
 
 如果是为了解决某个`Issue`而提出的`Pull Request`，需要在`Pull Request`描述中附上对应`Issue`的编号
 
+本仓库允许 AI 辅助代码编写，但请确保你提交的代码经过你或人类协作者的人工审计。
+
 > [!IMPORTANT]
-> 仓库维护者有直接关闭`Pull Request`的权力
+> 仓库维护者有有理由地直接关闭`Pull Request`的权力
 
 ## 用户脚本
 
