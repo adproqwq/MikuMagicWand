@@ -10,14 +10,14 @@
 
 ## 技术栈与基础设施
 
-| 方面 | 说明 |
-| ---- | ---- |
-| 语言/框架 | TypeScript（`strict: true`）+ Vue 3（`<script lang="ts">` + Options API）+ Vite |
-| 构建 | `vite-plugin-monkey` 生成用户脚本；Vue 通过 `externalGlobals` 从 CDN 外部加载 |
-| 包管理 | **pnpm**（`packageManager: pnpm@12.6.0`）；不要用 npm/yarn 装依赖 |
-| UI | mdui 2（Material Design 组件库，标签以 `mdui-` 开头，作为自定义元素使用） |
-| 校验 | `zod`（设置/分类 schema）、localforage（IndexedDB 封装）、jszip、json5、js-base64、file-saver、`@gkd-kit/api`（类型） |
-| 代码检查 | oxlint（`.oxlintrc.json`）+ oxfmt（`.oxfmtrc.json`），VSCode 使用 Oxc 扩展格式化 |
+| 方面      | 说明                                                                                                                  |
+| --------- | --------------------------------------------------------------------------------------------------------------------- |
+| 语言/框架 | TypeScript（`strict: true`）+ Vue 3（`<script lang="ts">` + Options API）+ Vite                                       |
+| 构建      | `vite-plugin-monkey` 生成用户脚本；Vue 通过 `externalGlobals` 从 CDN 外部加载                                         |
+| 包管理    | **pnpm**（`packageManager: pnpm@12.6.0`）；不要用 npm/yarn 装依赖                                                     |
+| UI        | mdui 2（Material Design 组件库，标签以 `mdui-` 开头，作为自定义元素使用）                                             |
+| 校验      | `zod`（设置/分类 schema）、localforage（IndexedDB 封装）、jszip、json5、js-base64、file-saver、`@gkd-kit/api`（类型） |
+| 代码检查  | oxlint（`.oxlintrc.json`）+ oxfmt（`.oxfmtrc.json`），VSCode 使用 Oxc 扩展格式化                                      |
 
 ## 常用命令
 
@@ -61,7 +61,7 @@ src/utils/            工具：indexedDB（localforage 封装）、event（事�
 
 ## 关键约束（硬性规则）
 
-1. **`grant: 'none'`**：脚本未申请任何油猴特殊权限，**禁止使用 GM_* 系列、unsafeWindow 等脚本管理器 API**；只能使用普通 Web API + 现有依赖。
+1. **`grant: 'none'`**：脚本未申请任何油猴特殊权限，_*禁止使用 GM_* 系列、unsafeWindow 等脚本管理器 API_*；只能使用普通 Web API + 现有依赖。
 2. **不改 `vite.config.ts` 的脚本元信息**（match、name、grant、icon 等），除非用户明确要求。
 3. **存储兼容性红线**：不得破坏用户既有设置。新增设置项必须带默认值并在 `src/common/init.ts` 或等价初始化逻辑中补默认（参考现有「读取→补默认→写回」模式，如 `rulesKeySort` 的同步逻辑）。
 4. **公开 API 变更必须同步 `src/api/api.md`**。
