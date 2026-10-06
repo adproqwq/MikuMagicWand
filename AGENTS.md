@@ -61,7 +61,7 @@ src/utils/            工具：indexedDB（localforage 封装）、event（事�
 
 ## 关键约束（硬性规则）
 
-1. **`grant: 'none'`**：脚本未申请任何油猴特殊权限，*禁止使用 GM_\* 系列、unsafeWindow 等脚本管理器 API*；只能使用普通 Web API + 现有依赖。
+1. **`grant: 'none'`**：脚本未申请任何油猴特殊权限，_禁止使用 GM\_\* 系列、unsafeWindow 等脚本管理器 API_；只能使用普通 Web API + 现有依赖。
 2. **不改 `vite.config.ts` 的脚本元信息**（match、name、grant、icon 等），除非用户明确要求。
 3. **存储兼容性红线**：不得破坏用户既有设置。新增设置项必须带默认值并在 `src/common/init.ts` 或等价初始化逻辑中补默认（参考现有「读取→补默认→写回」模式，如 `rulesKeySort` 的同步逻辑）。
 4. **公开 API 变更必须同步 `src/api/api.md`**。
