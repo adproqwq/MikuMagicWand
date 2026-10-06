@@ -6,6 +6,9 @@
 
 当前版本：2.19.2
 
+> [!NOTE]
+> 如果你仍想使用由脚本提供的完整功能，请保持版本在 v2.19.x 以下，但你将无法获得后续的问题修复。
+
 Powered By Vite + Vue + TypeScript
 
 使用`vite-plugin-monkey`插件编译
